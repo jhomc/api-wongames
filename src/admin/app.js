@@ -1,5 +1,18 @@
+import AuthLogo from './extensions/white-logo.svg'
+import MenuLogo from './extensions/icon.svg';
+import favicon from './extensions/icon.svg';
+
 export default {
   config: {
+    auth: {
+      logo: AuthLogo
+    },
+    head: {
+      favicon: favicon
+    },
+    menu: {
+      logo: MenuLogo
+    },
     locales: [
       // 'ar',
       // 'fr',
@@ -28,6 +41,11 @@ export default {
       // 'zh-Hans',
       // 'zh',
     ],
+    translations: {
+      en: {
+        "app.components.LeftMenu.navbrand.title": "Wongames Menu",
+      }
+    },
   },
   bootstrap(app) {
     console.log(app);
