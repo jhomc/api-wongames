@@ -16,6 +16,7 @@ module.exports = createCoreController('api::game.game', ({ strapi }) => ({
       ctx.send("Finished populating!")
     } catch (err) {
       ctx.send({ err: err })
+      console.log(err)
     }
   }
 }));

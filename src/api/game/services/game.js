@@ -7,6 +7,7 @@
 const { createCoreService } = require('@strapi/strapi').factories;
 
 const axios = require("axios");
+const slugify = require("slugify");
 
 async function getGameInfo(slug) {
   const jsdom = require('jsdom');
@@ -30,6 +31,13 @@ module.exports = createCoreService('api::game.game', ({ strapi }) => ({
 
     const { data: { products } } = await axios.get(gogApiUrl)
 
-    console.log(await getGameInfo(products[1].slug))
+    console.log(products[0])
+
+    await strapi.entityService.create('api::publisher.publisher', {
+      data: {
+        name: products[0].publisher,
+        slug: slugify(products[0].publisher)
+      }
+    })
   }
 }));
